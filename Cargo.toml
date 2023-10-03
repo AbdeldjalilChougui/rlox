@@ -1,0 +1,9 @@
+[package]
+name = "rlox"
+version = "0.1.0"
+edition = "2021"
+authors = ["Abdeldjalil Chougui"]
+license = "MIT"
+description = "Lox (Crafting Interpreters) in Rust: tree-walk interpreter and bytecode VM"
+
+[dependencies]
