@@ -1,0 +1,5 @@
+print nil or "default";   // expect: default
+print "first" or "second"; // expect: first
+print false and boom;      // expect: false
+print 1 and 2;             // expect: 2
+if (0) print "0 is truthy"; else print "no"; // expect: 0 is truthy

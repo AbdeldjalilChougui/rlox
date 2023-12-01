@@ -1,0 +1,10 @@
+fun fib(n) {
+  if (n < 2) return n;
+  return fib(n - 1) + fib(n - 2);
+}
+print fib(20); // expect: 6765
+fun noReturn() {}
+print noReturn(); // expect: nil
+print fib; // expect: <fn fib>
+fun add(a, b, c) { return a + b + c; }
+print add(1, 2, 3); // expect: 6

@@ -1,0 +1,11 @@
+print 1 + 2 * 3;      // expect: 7
+print (1 + 2) * 3;    // expect: 9
+print 10 / 4;         // expect: 2.5
+print -3 - -4;        // expect: 1
+print 2 > 1;          // expect: true
+print 1 >= 2;         // expect: false
+print 1 == 1.0;       // expect: true
+print "a" == "a";     // expect: true
+print nil == false;   // expect: false
+print !nil;           // expect: true
+print 0.1 + 0.2 == 0.3; // expect: false

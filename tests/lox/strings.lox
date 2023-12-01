@@ -1,0 +1,8 @@
+var a = "hello";
+var b = " world";
+print a + b;          // expect: hello world
+print "x" + "y" == "xy"; // expect: true
+print "multi
+line";
+// expect: multi
+// expect: line
