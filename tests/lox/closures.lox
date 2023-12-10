@@ -1,0 +1,43 @@
+fun makeCounter() {
+  var i = 0;
+  fun count() { i = i + 1; return i; }
+  return count;
+}
+var c1 = makeCounter();
+var c2 = makeCounter();
+print c1(); // expect: 1
+print c1(); // expect: 2
+print c2(); // expect: 1
+
+// Closures capture variables, not values, and the resolver binds statically.
+var a = "global";
+{
+  fun show() { print a; }
+  show(); // expect: global
+  var a = "block";
+  show(); // expect: global
+}
+
+// Shared captured variable between two closures.
+var get;
+var set;
+fun pair() {
+  var v = "before";
+  fun g() { return v; }
+  fun s(x) { v = x; }
+  get = g;
+  set = s;
+}
+pair();
+set("after");
+print get(); // expect: after
+
+// Each loop iteration's local is captured separately when declared inside the body.
+var fs0; var fs1;
+for (var i = 0; i < 2; i = i + 1) {
+  var j = i;
+  fun f() { return j; }
+  if (i == 0) fs0 = f; else fs1 = f;
+}
+print fs0(); // expect: 0
+print fs1(); // expect: 1

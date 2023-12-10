@@ -1,0 +1,22 @@
+class Animal {
+  init(name) { this.name = name; }
+  speak() { return this.name + " makes a sound"; }
+  kind() { return "animal"; }
+}
+class Dog < Animal {
+  speak() { return super.speak() + " (woof)"; }
+}
+class Puppy < Dog {
+  speak() { return super.speak() + " (yip)"; }
+}
+print Dog("Rex").speak();   // expect: Rex makes a sound (woof)
+print Puppy("Bit").speak(); // expect: Bit makes a sound (woof) (yip)
+print Puppy("Bit").kind();  // expect: animal
+
+class A { method() { print "A method"; } }
+class B < A {
+  method() { print "B method"; }
+  test() { super.method(); }
+}
+class C < B {}
+C().test(); // expect: A method

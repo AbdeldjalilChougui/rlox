@@ -1,0 +1,34 @@
+fun outer() {
+  var x = "outer";
+  fun middle() {
+    fun inner() { return x; }
+    return inner;
+  }
+  return middle;
+}
+print outer()()(); // expect: outer
+
+// Closed-over variable shared after the frame returns.
+fun makePair() {
+  var n = 0;
+  fun inc() { n = n + 1; }
+  fun get() { return n; }
+  inc(); inc();
+  return get;
+}
+print makePair()(); // expect: 2
+
+// A field holding a closure is callable through invoke syntax.
+class Box {}
+var b = Box();
+fun hello(name) { return "hi " + name; }
+b.f = hello;
+print b.f("lox"); // expect: hi lox
+
+class Base { init(v) { this.v = v; } get() { return this.v; } }
+class Derived < Base {
+  init(v) { super.init(v * 2); return; }
+}
+print Derived(21).get(); // expect: 42
+var getter = Derived(1).get;
+print getter(); // expect: 2

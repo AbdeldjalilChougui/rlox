@@ -1,0 +1,22 @@
+class Point {
+  init(x, y) { this.x = x; this.y = y; }
+  sum() { return this.x + this.y; }
+}
+var p = Point(3, 4);
+print p.sum(); // expect: 7
+print p;       // expect: Point instance
+print Point;   // expect: Point
+p.x = 10;
+print p.sum(); // expect: 14
+var m = p.sum;
+print m();     // expect: 14
+class Empty {}
+var e = Empty();
+e.field = "set later";
+print e.field; // expect: set later
+print p.init(1, 1) == p; // expect: true
+class Counter {
+  init() { this.n = 0; }
+  inc() { this.n = this.n + 1; return this; }
+}
+print Counter().inc().inc().n; // expect: 2
