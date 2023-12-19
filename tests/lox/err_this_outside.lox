@@ -1,0 +1,2 @@
+print this;
+// expect compile error: Can't use 'this' outside of a class.

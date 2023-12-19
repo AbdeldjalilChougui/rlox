@@ -1,0 +1,4 @@
+{
+  var a = a;
+}
+// expect compile error: Can't read local variable in its own initializer.

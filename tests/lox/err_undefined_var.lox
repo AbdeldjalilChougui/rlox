@@ -1,0 +1,3 @@
+print "before"; // expect: before
+print missing;
+// expect runtime error: Undefined variable 'missing'.
